@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Registration Form</title>
+<link rel="stylesheet" href="styles.css">
+<style>
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Registration Form</h1>
+</header>
+<main>
+<form action="./sub.html" method="POST" target="_self">
+<section>
+<div class="reg">
+<label for="fname">First name:</label><input type="text" id="fname" name="fname" placeholder="First Name" onkeyup="funct()" required>
+</div><div class="reg">
+<label for="lname">Last name:</label><input type="text" id="lname" name="lname" placeholder="Last Name" onkeyup="funct()" required>
+</div><div class="reg">
+<label for="gender">Gender:</label><select name="gender" id="gender" onkeyup="funct()" required>
+<option value="" hidden>Select from below</option>
+<option>Male</option>
+<option>Female</option>
+<option>Transgender</option>
+<option>Prefer not to say</option>
+</select>
+</div><div class="reg">
+<label for="email">Email:</label><input type="email" name="email" id="email" placeholder="your@mail.com" onkeyup="funct()" required>
+</div><div class="reg">
+<label for="num">Mobile Number:</label><input type="number" required name="num" id="num" onkeyup="funct()" styles="decoration:none">
+</div><div class="reg">
+<label for="pass">Password:</label><input type="password" name="pass" id="password" minlength="8" onkeyup="funct()" maxlength="15" required>
+</div><div class="reg">
+<label for="confpass">Confirm Password:</label><input type="password" name="confpass" onkeyup="funct()" id="confpass" required>
+</div><div class="reg">
+<label for="addr">Address:</label><textarea name="addr" id="addr" onkeyup="funct()" required></textarea>
+</div>
+</section>
+<div class="sub">  
+<input type="submit" value="Submit" id="mySubmit" disabled>
+</div>
+</form>
+</main>
+<script>
+function funct()
+{
+var a=document.getElementById('fname').value;
+var b=document.getElementById('lname').value;
+var c=document.getElementById('email').value;
+var d=document.getElementById('num').value;
+var e=document.getElementById('password').value;
+var f=document.getElementById('confpass').value;
+var g=document.getElementById('addr').value;
+var bt = document.getElementById('mySubmit');
+if(a!='' && b!='' && c!='' && d!='' && e!='' && f!='' && g!='')
+{
+	if(e!==f)
+	{
+		bt.disabled=true;
+	}
+	else
+	{
+		bt.disabled=false;
+	}
+}
+else
+{
+	bt.disabled=true;
+}
+}
+preventDefault();
+</script>
+<footer>
+<marquee behavior="alternate" direction="right">This is just a demo registration form.</marquee>
+</footer>
+</body>
+</html>
